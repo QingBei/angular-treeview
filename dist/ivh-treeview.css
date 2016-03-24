@@ -25,3 +25,7 @@ ul.ivh-treeview li.ivh-treeview-node-leaf .ivh-treeview-twistie-expanded,
 ul.ivh-treeview li.ivh-treeview-node-leaf .ivh-treeview-twistie-collapsed {
   display: none;
 }
+
+.remove-hover-color:hover {
+  background: #ffffff;
+}
