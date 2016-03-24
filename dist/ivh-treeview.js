@@ -82,7 +82,11 @@ angular.module('ivh.treeview').directive('ivhTreeviewCheckbox', [function() {
   return {
     restrict: 'AE',
     require: '^ivhTreeview',
-    template: '<span ivh-treeview-checkbox-helper="node"></span>'
+    template: [
+      '<div class="col-md-2 col-lg-1 ctx-table-body-cell smooth">',
+        '<span ivh-treeview-checkbox-helper="node"></span>',
+      '</div>'
+      ].join('\n')
   };
 }]);
 
@@ -100,7 +104,7 @@ angular.module('ivh.treeview').directive('ivhTreeviewChildren', function() {
     restrict: 'AE',
     require: '^ivhTreeviewNode',
     template: [
-      '<ul ng-if="getChildren().length" class="ivh-treeview" style="list-style-type:none">',
+      '<ul ng-if="getChildren().length" class="ivh-treeview" style="list-style-type:none; padding-top:0; padding-bottom:0; margin:-1px">',
         '<li ng-repeat="child in getChildren()"',
             'ng-hide="trvw.hasFilter() && !trvw.isVisible(child)"',
             'class="ivh-treeview-node"',
@@ -686,12 +690,12 @@ angular.module('ivh.treeview').directive('ivhTreeview', ['ivhTreeviewMgr', funct
       }
     },
     template: [
-      '<ul class="ivh-treeview" style="list-style-type:none">',
+      '<ul class="ivh-treeview col-lg-12 ctx-table-body-cell" ng-class="ctx-table-cell-centered" style="list-style-type:none; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; margin:-1px">',
         '<li ng-repeat="child in root | ivhTreeviewAsArray"',
             'ng-hide="trvw.hasFilter() && !trvw.isVisible(child)"',
-            'class="ivh-treeview-node"',
+            'class="ivh-treeview-node ctx-table-body-cell"',
             'ng-class="{\'ivh-treeview-node-collapsed\': !trvw.isExpanded(child) && !trvw.isLeaf(child)}"',
-            'ivh-treeview-node="child"',
+            'ivh-treeview-node="child" style="padding-top:0; padding-bottom:0;"',
             'ivh-treeview-depth="0">',
         '</li>',
       '</ul>'
@@ -1372,16 +1376,20 @@ angular.module('ivh.treeview').provider('ivhTreeviewOptions', function() {
      * Template for tree nodes
      */
     nodeTpl: [
-      '<div class="ivh-treeview-node-content" title="{{trvw.label(node)}}">',
-        '<span ivh-treeview-toggle>',
-          '<span class="ivh-treeview-twistie-wrapper" ivh-treeview-twistie></span>',
-        '</span>',
-        '<span class="ivh-treeview-checkbox-wrapper" ng-if="trvw.useCheckboxes()"',
+      '<div class="ivh-treeview-node-content row ctx-table-body-row remove-hover-color" title="{{trvw.label(node)}}">',
+        '<div class="ivh-treeview-checkbox-wrapper" ng-if="trvw.useCheckboxes()"',
             'ivh-treeview-checkbox>',
-        '</span>',
-        '<span class="ivh-treeview-node-label" ivh-treeview-toggle>',
-          '{{trvw.label(node)}}',
-        '</span>',
+        '</div>',
+        '<div class="col-md-10 col-lg-11 ctx-table-body-cell smooth">',
+            '<div class="form-inline">',
+                '<span ivh-treeview-toggle>',
+                  '<span class="ivh-treeview-twistie-wrapper" ivh-treeview-twistie></span>',
+                '</span>',
+                '<span class="ivh-treeview-node-label" ivh-treeview-toggle>',
+                  '{{trvw.label(node)}}',
+                '</span>',
+            '</div>',
+        '</div>',
         '<div ivh-treeview-children></div>',
       '</div>'
     ].join('\n')
