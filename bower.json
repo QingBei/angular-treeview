@@ -15,7 +15,7 @@
     "treeview"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/ivantage/angular-ivh-treeview",
+  "homepage": "https://github.com/QingBei/angular-treeview.git",
   "ignore": [
     "**/.*",
     "bower_components",
