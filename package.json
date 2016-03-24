@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/ivantage/angular-ivh-treeview/issues"
   },
-  "homepage": "https://github.com/ivantage/angular-ivh-treeview",
+  "homepage": "https://github.com/QingBei/angular-treeview",
   "devDependencies": {
     "grunt-contrib-concat": "^0.4.0",
     "grunt-contrib-clean": "^0.5.0",
