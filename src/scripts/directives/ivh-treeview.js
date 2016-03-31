@@ -104,7 +104,7 @@ angular.module('ivh.treeview').directive('ivhTreeviewChildren', function() {
     restrict: 'AE',
     require: '^ivhTreeviewNode',
     template: [
-      '<ul ng-if="getChildren().length" class="ivh-treeview" style="list-style-type:none; padding-top:0; padding-bottom:0; margin:-1px">',
+      '<ul ng-if="getChildren().length" class="ivh-treeview" style="list-style-type:none; padding:0; margin:-1px">',
         '<li ng-repeat="child in getChildren()"',
             'ng-hide="trvw.hasFilter() && !trvw.isVisible(child)"',
             'class="ivh-treeview-node"',
@@ -690,7 +690,7 @@ angular.module('ivh.treeview').directive('ivhTreeview', ['ivhTreeviewMgr', funct
       }
     },
     template: [
-      '<ul class="ivh-treeview col-lg-12 ctx-table-body-cell" ng-class="ctx-table-cell-centered" style="list-style-type:none; padding-left:0; padding-right:0; padding-top:0; padding-bottom:0; margin:-1px">',
+      '<ul class="ivh-treeview col-lg-12 ctx-table-body-cell" ng-class="ctx-table-cell-centered" style="list-style-type:none; padding:0; margin:-1px">',
         '<li ng-repeat="child in root | ivhTreeviewAsArray"',
             'ng-hide="trvw.hasFilter() && !trvw.isVisible(child)"',
             'class="ivh-treeview-node ctx-table-body-cell"',
